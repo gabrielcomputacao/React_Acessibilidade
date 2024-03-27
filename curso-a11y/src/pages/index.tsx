@@ -6,16 +6,16 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div>
-      <div className={styles.header}>
-        <Image width={286 / 2} src={LogoImg} alt="logo github" />
+    <>
+      <header className={styles.header}>
+        <Image width={286 / 2} src={LogoImg} alt="logo rocket" />
 
-        <div className={styles.nav}>
-          <a href="">
+        <nav className={styles.nav}>
+          <a href="https://github.com/gabrielcomputacao/">
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 512 512"
               height="28"
               width="28"
@@ -27,28 +27,39 @@ export default function Home() {
               />
             </svg>
           </a>
-        </div>
-      </div>
-      <div className={styles.content}>
-        <h2>Desenvolvendo uma web acesível</h2>
-        <h4>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, rem
-          dolorum!
-        </h4>
+        </nav>
+      </header>
+      <main>
+        <article className={styles.content}>
+          <header>
+            <h2>Desenvolvendo uma web acesível</h2>
+            <h4>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla,
+              rem dolorum!
+            </h4>
+          </header>
 
-        <p>
-          Veritatis amet consequatur dolores laudantium deserunt necessitatibus
-          laborum vero voluptatum? Natus modi quaerat est sed ullam et illum
-          voluptatem.
-        </p>
-        <p>
-          Veritatis amet consequatur dolores laudantium deserunt necessitatibus
-          laborum vero voluptatum? Natus modi quaerat est sed ullam et illum
-          voluptatem.
-        </p>
+          <p>
+            Veritatis amet consequatur dolores laudantium deserunt
+            necessitatibus laborum vero voluptatum? Natus modi quaerat est sed
+            ullam et illum voluptatem.
+          </p>
+          <p>
+            Veritatis amet consequatur dolores laudantium deserunt
+            necessitatibus laborum vero voluptatum? Natus modi quaerat est sed
+            ullam et illum voluptatem.
+          </p>
 
-        <h3>Titulo em H3</h3>
-      </div>
-    </div>
+          <h3>Titulo em H3</h3>
+        </article>
+      </main>
+      <footer className={styles.header}>
+        <Image width={286 / 2} src={LogoImg} alt="logo rocket" />
+
+        <nav aria-label="Rodape" className={styles.nav}>
+          <a href="https://github.com/gabrielcomputacao/">Termos de Uso</a>
+        </nav>
+      </footer>
+    </>
   );
 }
