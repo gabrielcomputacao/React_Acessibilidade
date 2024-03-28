@@ -51,7 +51,7 @@ export default function Home() {
             ullam et illum voluptatem.
           </p>
 
-          <h3>Titulo em H3</h3>
+          <h5>Titulo em H3</h5>
         </article>
       </main>
       <footer className={styles.header}>
