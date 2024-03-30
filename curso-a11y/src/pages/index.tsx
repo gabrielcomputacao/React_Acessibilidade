@@ -3,10 +3,14 @@ import Image from "next/image";
 import LogoImg from "@/assets/rocket.svg";
 
 import styles from "../styles/Home.module.css";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Acessibilidade React</title>
+      </Head>
       <header className={styles.header}>
         <Image width={286 / 2} src={LogoImg} alt="rocketseat blog" />
 
@@ -33,11 +37,11 @@ export default function Home() {
       <main>
         <article className={styles.content}>
           <header>
-            <h2>Desenvolvendo uma web acesível</h2>
-            <h4>
+            <h1>Desenvolvendo uma web acesível</h1>
+            <h2>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla,
               rem dolorum!
-            </h4>
+            </h2>
           </header>
 
           <p>
