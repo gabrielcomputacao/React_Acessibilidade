@@ -54,7 +54,7 @@ export default function Home() {
           <h5>Titulo em H3</h5>
         </article>
       </main>
-      <footer className={styles.header}>
+      <footer className={styles.footer}>
         <Image width={286 / 2} src={LogoImg} alt="Blog da Rocketseat" />
 
         <nav aria-label="Rodape" className={styles.nav}>
