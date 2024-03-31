@@ -62,3 +62,22 @@
     color: #333;
     border-radius: 5px;
 }
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    /* reseta o top bottom left e right com inset */
+    inset: 0;
+}
+
+.closeModal {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 16px;
+    border-radius: 5px;
+    background: #8257e5;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+
+}

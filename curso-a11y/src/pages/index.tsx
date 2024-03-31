@@ -1,16 +1,15 @@
 import Image from "next/image";
 
 import LogoImg from "@/assets/rocket.svg";
-
+import * as Dialog from "@radix-ui/react-dialog";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  /*  const [isModalOpen, setIsModalOpen] = useState(false);
   /* 
     todo => ref é inicializado como null e quando o elemento aparece em tela o useRef pega a referencia dele na dom
-  */
+  
   const modalRef = useRef<HTMLDivElement>(null);
 
   function handleModalOpen() {
@@ -19,11 +18,11 @@ export default function Home() {
 
   useEffect(() => {
     if (isModalOpen) {
-      /* .current é o valor atual na dom */
+      /* .current é o valor atual na dom 
 
       modalRef?.current?.focus();
     }
-  }, [isModalOpen]);
+  }, [isModalOpen]); */
 
   return (
     <>
@@ -81,18 +80,34 @@ export default function Home() {
         <Image width={286 / 2} src={LogoImg} alt="Blog da Rocketseat" />
 
         <nav aria-label="Rodape" className={styles.nav}>
-          <button
-            type="button"
-            onClick={handleModalOpen}
-            /* semanticamente mostra que o button controla o componente com esse id */
-            aria-controls="modal1"
-          >
-            Termos de Uso
-          </button>
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button
+                type="button"
+                /* semanticamente mostra que o button controla o componente com esse id 
+            aria-controls="modal1" */
+              >
+                Termos de Uso
+              </button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className={styles.overlay} />
+              <Dialog.Content className={styles.modal}>
+                <Dialog.Title>Modal Termos de Uso</Dialog.Title>
+                <Dialog.Description>
+                  Termos de Uso atualizados
+                </Dialog.Description>
+                {/* propriedade asChild faz com que o pai pegue o comportamento do filho */}
+                <Dialog.Close asChild>
+                  <button className={styles.closeModal}>Fechar</button>
+                </Dialog.Close>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
         </nav>
       </footer>
 
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <div
           id="modal1"
           ref={modalRef}
@@ -102,13 +117,13 @@ export default function Home() {
           // tabindex -1 não deixa o modal ser focado com tab, isso é usado quando se tem mais elementos interativos dentro do modal
           tabIndex={-1}
         >
-          {/* 
+          {
             Aria-labelledby é um formato de mostra que outro elemento descreve esse elemento
-          */}
+          }
           <h2 id="modalTitle">Modal Termos de Uso</h2>
           <p>Esses sao os termos de uso</p>
         </div>
-      )}
+      )} */}
     </>
   );
 }
