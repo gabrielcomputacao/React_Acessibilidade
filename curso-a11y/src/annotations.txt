@@ -1,0 +1,17 @@
+
+aria-hidden = 'true'  esconde aquele item html dos leitores de telas
+
+aria-label os leitores de tela leem o que esta escrito no aria-label
+
+## Extensão para leitores de telas:
+
+Ferramenta que ajuda em testes, evitar redundancias e leituras de coisas que voce nao espera
+Tem uma extensão no google chrome Screen Reader
+
+
+## Role
+
+Define algumas semanticas a mais para os nossos elementos html
+
+Exemplo: Role="dialog" é uma semantica para se colocar em modais personalizados para avisar para os leitores
+de tela que algo abriu na tela, o dialog já é um componente do html

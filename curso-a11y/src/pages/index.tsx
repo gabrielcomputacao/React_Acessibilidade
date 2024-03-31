@@ -4,8 +4,27 @@ import LogoImg from "@/assets/rocket.svg";
 
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  /* 
+    todo => ref é inicializado como null e quando o elemento aparece em tela o useRef pega a referencia dele na dom
+  */
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  function handleModalOpen() {
+    setIsModalOpen((prev) => !prev);
+  }
+
+  useEffect(() => {
+    if (isModalOpen) {
+      /* .current é o valor atual na dom */
+
+      modalRef?.current?.focus();
+    }
+  }, [isModalOpen]);
+
   return (
     <>
       <Head>
@@ -62,9 +81,34 @@ export default function Home() {
         <Image width={286 / 2} src={LogoImg} alt="Blog da Rocketseat" />
 
         <nav aria-label="Rodape" className={styles.nav}>
-          <a href="https://github.com/gabrielcomputacao/">Termos de Uso</a>
+          <button
+            type="button"
+            onClick={handleModalOpen}
+            /* semanticamente mostra que o button controla o componente com esse id */
+            aria-controls="modal1"
+          >
+            Termos de Uso
+          </button>
         </nav>
       </footer>
+
+      {isModalOpen && (
+        <div
+          id="modal1"
+          ref={modalRef}
+          className={styles.modal}
+          role="dialog"
+          aria-labelledby="modalTitle"
+          // tabindex -1 não deixa o modal ser focado com tab, isso é usado quando se tem mais elementos interativos dentro do modal
+          tabIndex={-1}
+        >
+          {/* 
+            Aria-labelledby é um formato de mostra que outro elemento descreve esse elemento
+          */}
+          <h2 id="modalTitle">Modal Termos de Uso</h2>
+          <p>Esses sao os termos de uso</p>
+        </div>
+      )}
     </>
   );
 }
